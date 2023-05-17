@@ -1,4 +1,4 @@
-# Star wars elimination game
+# Star wars Elimination Game
 
 ## Contexto 
 En redes sociales, siempre hay cuentas que hacen eliminaciones de personajes, objetos, planetas o otro tipo de cosas para saber cuál es el más popular. Aunque en este caso es un poco dificíl incluir a las redes sociales, este programa es como un tipo de juego, donde el usuario puede elegir entre dos cosas múltiples veces, para finalmente tener un ganador, o el mejor de este tipo de objeto. Esto se podría hacer con cualquier tipo de cosa, lo voy a hacer con Star Wars, ya que es un tema bastante popular hoy en día y aparte me gusta
