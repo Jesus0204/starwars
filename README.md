@@ -6,6 +6,8 @@ En redes sociales, siempre hay cuentas que hacen eliminaciones de personajes, ar
 ## Funcionalidad
 Este programa va a tener precargados ciertos personajes, armas o planetas, donde el usuario primero elige el tipo de objeto con el que quiere jugar, y después en base a lo que eligió empieza a decidir cuál es el mejor entre los objetos que eligió. Para la simplicidad del programa, *por ahora* no se van a poder agregar personajes. Si es que da tiempo y se puede, entonces ya agrego está funcionalidad. Es importante mencionar que como igual los datos son conocidos, en la mayoría de los casos solo hay dos constructores, el vacío y el parametrizado dependiendo del caso. De igual forma, para que tenga sentido el juego, solo se va a poder jugar con el mismo tipo de objeto, no se va a poder mezclar uno con otro. 
 
+Va a haber 16 objetos de cada tipo, para que se pueda hacer la comparación sin ningún tipo de problema. 
+
 Se corre en consola, y se compila con g++
 
 ## Tipo de objetos
