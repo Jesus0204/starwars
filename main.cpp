@@ -43,6 +43,14 @@ cout << obi_name << "\n";
 
 // Ahora las 8 armas (porque hay menos) que se van a usar
 Weapons lightsaber = Weapons("Lightsaber", "Jedi/Sith/Grievous", 300000, "Kyber Cyrstal, Metallic Hilt", 2);
+Weapons ion_blaster = Weapons("Ion Blaster", "Jawas/Clones vs. Droids", 800, "Ion energy, Metal", 2);
+Weapons blaster = Weapons("Blaster", "Clones/Stromtroopers/Rebels", 500, "Plasma energy, Metal", 2);
+Weapons seismic_charge = Weapons("Seismic Charge", "Jango/Boba Fett", 10000, "Metal, Sound turned into energy", 2);
+Weapons flame = Weapons("BT X-42 Heavy Flame Projector", "Clones/Mandalorian commandos", 2000, "Metal, Flame creator", 2);
+Weapons wrist_rocket = Weapons("Wrist Rocket Launcher", "Bounty hunters", 2500, "Metal, Rockets", 2);
+Weapons missile_rocket = Weapons("Missile Launcher", "Clones/Stormstroopers/Bounty hunters", 1500, "Metal, Missiles", 2);
+Weapons force_pike = Weapons("Force Pike", "Republic/Empire", 500, "Grahphite", 2);
+
 cout << lightsaber.get_value() << "\n";
 
 // Finalmente se crean los 16 planetas que se van a usar (que van a ir dentro el objeto no creado)
