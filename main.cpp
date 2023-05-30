@@ -17,41 +17,32 @@
 #include "Game.h"
 using namespace std;
 
-
-void pers(){
-    Game juego;
-    juego.agrega_personajes();
-    juego.agrega_planetas();
-    juego.agrega_weapons();
-    juego.imprimir();
-}
-
 // Procedimiento menu
-void menu(){
+void menu_inicial(){
     /* Imprimir el menu */
     cout << "\nMenu:\n";
     cout << "1. Jugar con Personajes.\n";
     cout << "2. Jugar con Armas.\n";
-    cout << "3. Jugar con Planetas.\n";
-    cout << "4. Consultar todos los datos de un Personaje.\n";
-    cout << "5. Consultar todos los datos de un Arma.\n";
-    cout << "6. Consultar todos los datos de un Planeta. \n";
-    cout << "7. Salir.\n\n";
+    cout << "3. Jugar con Planetas.\n\n";
 }
 
 int main(){
 
     cout << "\n¡Bienvenido al juego de Eliminación de Star Wars©! Comenzemos!!\n";
 
-    pers();
+    /* Crear el objeto del juego con la lista vacía. 
+     * dependiendo del tipo de juego, se carga con diferentes
+     * objetos y funciones.
+    */
+    Game juego;
 
     // Se asgina un valor inicial a opción para que entre al ciclo
-    int opcion = 1;
+    int opcion = 4;
 
-    // Ciclo para que solo corra con ciertas opciones
-    while (opcion >= 1 && opcion <= 6){
+    // Ciclo para que se repita hasta que el usuario eliga opción válida
+    while (opcion < 1 || opcion > 3){
         // Imprimir el menu
-        menu();
+        menu_inicial();
         cout << "Opción: ";
         // Tomar el input del usuario
         cin >> opcion;
@@ -60,33 +51,26 @@ int main(){
         switch (opcion){
             // Caso 1 con el que se juega con Personajes
             case 1: {
+                juego.agrega_personajes();
+                juego.imprimir();
                 break;
             }
             // Caso 2 con el que se juega con Armas
-            case 2:
-                break;
-
-            // Caso 3 con el que se juega con Planetas
-            case 3: 
-                break;
-            
-            // Caso 4 que imprime información de cierto Personaje
-            case 4: 
-                break;
-
-            // Caso 5 que imprime información de cierta Arma
-            case 5: {
+            case 2: {
+                juego.agrega_weapons();
+                juego.imprimir();
                 break;
             }
-
-            // Caso 6 que imprime información de cierto Planeta
-            case 6: {
+            // Caso 3 con el que se juega con Planetas
+            case 3: {
+                juego.agrega_planetas();
+                juego.imprimir();
                 break;
             }
         }
     }
 
-    cout << "Gracias por usar el programa!!! \n";
+    cout << endl << "Gracias por usar el programa!!! \n";
 
     return 0;
 
