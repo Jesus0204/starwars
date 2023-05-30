@@ -6,14 +6,14 @@ En redes sociales, siempre hay cuentas que hacen eliminaciones de personajes, ar
 ## Funcionalidad
 Este programa va a tener precargados ciertos personajes, armas o planetas, donde el usuario primero elige el tipo de objeto con el que quiere jugar, y después en base a lo que eligió empieza a decidir cuál es el mejor entre los objetos que eligió. Para la simplicidad del programa, *por ahora* no se van a poder agregar personajes. Si es que da tiempo y se puede, entonces ya agrego está funcionalidad. Es importante mencionar que como igual los datos son conocidos, en la mayoría de los casos solo hay dos constructores, el vacío y el parametrizado dependiendo del caso. De igual forma, para que tenga sentido el juego, solo se va a poder jugar con el mismo tipo de objeto, no se va a poder mezclar uno con otro. 
 
-Va a haber 16 objetos de cada tipo, para que se pueda hacer la comparación sin ningún tipo de problema. 
+Va a haber 16 objetos de cada tipo (8 de armas, ya que son menos), para que se pueda hacer la comparación sin ningún tipo de problema. 
 
 Se corre en consola, y se compila con g++
 
 ## Tipo de objetos
 Para evitar confusiones, estos son los tipos de objetos que va a tener el juego: 
-1. SW_object: Esta es la plantilla de cualquier tipo de objeto. Los tres diferentes tipos  de cosas heredan de aquí la característica del nombre, la fecha creada al igual que su afiliación. 
+1. SW_object: Esta es la plantilla de cualquier tipo de objeto. Los tres diferentes tipos de cosas heredan de aquí la característica del nombre al igual que su afiliación. 
 2. Personaje: El primer tipo de objeto. Aparte de heredar, tiene especie, planeta de origen al igual que género. 
 3. Weapons: El segundo tipo de objeto. Aparte de heredar, tiene su valor monetario al igual del material que está hecho. 
 4. Planeta: El último tipo de objeto. Aparte de heredar, tiene su región, y un booleano si su atmosphera es respirable. 
-5. Game: Este objeto va a servir como base de datos, donde se va a tener una lista con los 3 tipos de objeto, al igual que un integer indicando que tipo de juego el usuario decidió jugar. 
+5. Game: Este objeto va a servir como base de datos, donde se va a tener una lista de SW_object, donde con polimorfismo la lista puede tener un solo tipo de objeto o los 3 a la vez, al igual que un integer indicando que tipo de juego el usuario decidió jugar. 
