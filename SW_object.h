@@ -33,6 +33,8 @@ class SW_object {
     // Métodos de la clase
     string get_nombre();
     string get_affiliation();
+    int get_game_type();
+    virtual void muestra_opciones();
 };
 
 /**
@@ -49,6 +51,29 @@ string SW_object :: get_nombre(){
  */
 string SW_object :: get_affiliation(){
     return afilliation;
+}
+
+/**
+ * getter game_type
+ * @return int: tipo de objeto que se tiene (Personaje, Weapons, Planeta)
+ */
+int SW_object :: get_game_type(){
+    return game_type;
+}
+
+/**
+ * muestra_opciones imprime las opciones disponibles
+ *
+ * Imprime las características generales de los objetos sin 
+ * importar que tipo de objeto es
+ * @param None se usa polimorfismo
+ * @return
+ */
+void SW_object :: muestra_opciones(){
+
+    cout << "Nombre: " << nombre << endl;
+    cout << "Afilliation: " << afilliation << endl;
+
 }
 
 // Clase Personaje que hereda de SW_object
@@ -69,6 +94,7 @@ class Personaje: public SW_object{
     string get_home();
     string get_gender();
     string get_date_born();
+    void muestra_opciones();
 };
 
 /**
@@ -103,6 +129,24 @@ string Personaje :: get_date_born(){
     return date_born;
 }
 
+/**
+ * muestra_opciones imprime las opciones disponibles
+ *
+ * Imprime las características específicas del objeto 
+ * Personaje para que el usuario sepa que opciones tiene
+ * @param None se usa polimorfismo
+ * @return
+ */
+void Personaje :: muestra_opciones(){
+
+    cout << "Nombre: " << nombre << endl;
+    cout << "Afilliation: " << afilliation << endl;
+    cout << "Species: " << species << endl;
+    cout <<  "Home: " << home << endl;
+    cout << "Gender: " << gender << endl;
+    cout << "Date of Birth: " << date_born << endl;
+}
+
 
 // Clase Weapons que hereda de SW_object
 class Weapons: public SW_object{
@@ -118,6 +162,7 @@ class Weapons: public SW_object{
     // Métodos de la clase
     int get_value();
     string get_material();
+    void muestra_opciones();
 };
 
 /**
@@ -136,6 +181,22 @@ string Weapons :: get_material(){
     return material;
 }
 
+/**
+ * muestra_opciones imprime las opciones disponibles
+ *
+ * Imprime las características específicas del objeto 
+ * Weapons para que el usuario sepa que opciones tiene
+ * @param None se usa polimorfismo
+ * @return
+ */
+void Weapons :: muestra_opciones(){
+
+    cout << "Nombre: " << nombre << endl;
+    cout << "Afilliation: " << afilliation << endl;
+    cout << "Value: " << value << endl;
+    cout <<  "Material: " << material << endl;
+}
+
 // Clase Planeta que hereda de SW_object
 class Planeta: public SW_object{
     // Atributos del objeto
@@ -150,6 +211,7 @@ class Planeta: public SW_object{
     // Métodos de la clase
     string get_region();
     bool get_atmosphere();
+    void muestra_opciones();
 };
 
 /**
@@ -166,6 +228,27 @@ string Planeta :: get_region(){
  */
 bool Planeta :: get_atmosphere(){
     return atmosphere;
+}
+
+/**
+ * muestra_opciones imprime las opciones disponibles
+ *
+ * Imprime las características específicas del objeto 
+ * Planeta para que el usuario sepa que opciones tiene
+ * @param None se usa polimorfismo
+ * @return
+ */
+void Planeta :: muestra_opciones(){
+
+    cout << "Nombre: " << nombre << endl;
+    cout << "Afilliation: " << afilliation << endl;
+    cout << "Region: " << region << endl;
+    if (atmosphere == true){
+        cout <<  "Atmosphere: " << "Breathable" << endl; 
+    }
+    else if (atmosphere == false){
+        cout <<  "Atmosphere: " << "Not Breathable" << endl; 
+    }
 }
 
 #endif
