@@ -12,6 +12,8 @@
  * Clase Planeta con info general sobre el planeta
  */
 
+#ifndef SW_OBJECT_H
+#define SW_OBJECT_H
 #include <iostream>
 
 using namespace std;
@@ -20,17 +22,16 @@ class SW_object {
     // Atributos de la clase
     protected: 
     string nombre;
-    string date_created;
     string afilliation;
+    int game_type;
     public: 
     // Constructor por default
-    SW_object(): nombre(""), date_created(""), afilliation(""){}
+    SW_object(): nombre(""), afilliation(""), game_type(0){}
     // Constructor con parametrizado
-    SW_object(string nom, string date, string afi): nombre(nom), date_created(date), afilliation(afi){}
+    SW_object(string nom, string afi, int type): nombre(nom), afilliation(afi), game_type(type){}
 
     // Métodos de la clase
     string get_nombre();
-    string get_date_created();
     string get_affiliation();
 };
 
@@ -40,14 +41,6 @@ class SW_object {
  */
 string SW_object :: get_nombre(){
     return nombre;
-}
-
-/**
- * getter de la fecha
- * @return string: fecha cuando el objeto fue creado
- */
-string SW_object :: get_date_created(){
-    return date_created;
 }
 
 /**
@@ -65,15 +58,17 @@ class Personaje: public SW_object{
     string species;
     string home;
     string gender;
+    string date_born;
     public:
     // Constructor por default
-    Personaje(): species(""), home(""), gender(""), SW_object(){}
+    Personaje(): species(""), date_born(""), home(""), gender(""), SW_object(){}
     // Constructor parametrizado
-    Personaje(string nom, string date, string afi, string spe, string hom, string gen): SW_object(nom, date, afi), species(spe), home(hom), gender(gen){}
+    Personaje(string nom, string date, string afi, string spe, string hom, string gen, int type): SW_object(nom, afi, type), date_born(date), species(spe), home(hom), gender(gen){}
     // Métodos de la clase
     string get_species();
     string get_home();
     string get_gender();
+    string get_date_born();
 };
 
 /**
@@ -100,6 +95,15 @@ string Personaje :: get_gender(){
     return gender;
 }
 
+/**
+ * getter de la fecha
+ * @return string: fecha cuando el personaje nació
+ */
+string Personaje :: get_date_born(){
+    return date_born;
+}
+
+
 // Clase Weapons que hereda de SW_object
 class Weapons: public SW_object{
     // Atributos del objeto
@@ -110,7 +114,7 @@ class Weapons: public SW_object{
     // Constructor por default
     Weapons(): value(0.0), material(""), SW_object(){}
     // Constructor parametrizado
-    Weapons(string nom, string date, string afi, int val, string mat): SW_object(nom, date, afi), value(val), material(mat){}
+    Weapons(string nom, string afi, int val, string mat, int type): SW_object(nom, afi, type), value(val), material(mat){}
     // Métodos de la clase
     int get_value();
     string get_material();
@@ -142,7 +146,7 @@ class Planeta: public SW_object{
     // Constructor por default
     Planeta(): region(""), atmosphere(true), SW_object(){}
     // Constructor parametrizado
-    Planeta(string nom, string date, string afi, string reg, bool at): SW_object(nom, date, afi), region(reg), atmosphere(at){}
+    Planeta(string nom, string afi, string reg, bool at, int type): SW_object(nom, afi, type), region(reg), atmosphere(at){}
     // Métodos de la clase
     string get_region();
     bool get_atmosphere();
@@ -163,3 +167,5 @@ string Planeta :: get_region(){
 bool Planeta :: get_atmosphere(){
     return atmosphere;
 }
+
+#endif
