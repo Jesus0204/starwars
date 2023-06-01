@@ -12,8 +12,8 @@ Se corre en consola, y se compila con g++
 
 ## Tipo de objetos
 Para evitar confusiones, estos son los tipos de objetos que va a tener el juego: 
-1. SW_object: Esta es la plantilla de cualquier tipo de objeto. Los tres diferentes tipos de cosas heredan de aquí la característica del nombre al igual que su afiliación. 
+1. SW_object: Esta es la plantilla de cualquier tipo de objeto. Los tres diferentes tipos de cosas heredan de aquí la característica del nombre, su afiliación al igual que un número indicando que tipo de objeto son. 
 2. Personaje: El primer tipo de objeto. Aparte de heredar, tiene especie, planeta de origen al igual que género. 
 3. Weapons: El segundo tipo de objeto. Aparte de heredar, tiene su valor monetario al igual del material que está hecho. 
 4. Planeta: El último tipo de objeto. Aparte de heredar, tiene su región, y un booleano si su atmosphera es respirable. 
-5. Game: Este objeto va a servir como base de datos, donde se va a tener una lista de SW_object, donde con polimorfismo la lista puede tener un solo tipo de objeto o los 3 a la vez, al igual que un integer indicando que tipo de juego el usuario decidió jugar. 
+5. Game: Este objeto va a servir como base de datos, donde se va a tener una lista de SW_object, donde con polimorfismo la lista puede tener un solo tipo de objeto o los 3 a la vez, al igual que un integer indicando la cantidad de datos que se tiene en la lista.
