@@ -52,19 +52,16 @@ int main(){
             // Caso 1 con el que se juega con Personajes
             case 1: {
                 juego.agrega_personajes();
-                juego.imprimir();
                 break;
             }
             // Caso 2 con el que se juega con Armas
             case 2: {
                 juego.agrega_weapons();
-                juego.imprimir();
                 break;
             }
             // Caso 3 con el que se juega con Planetas
             case 3: {
                 juego.agrega_planetas();
-                juego.imprimir();
                 break;
             }
         }
