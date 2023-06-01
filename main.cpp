@@ -70,7 +70,14 @@ int main(){
         }
     }
 
-    cout << endl << "Gracias por usar el programa!!! \n";
+    cout << endl << "Perfecto, gracias por su elección!" << endl << endl;
+    
+    // Se manda a llamar la función base del código
+    juego.juego_eliminacion();
+    cout << "¡¡Que bien!! Tu selección es: " << endl;
+    juego.imprimir();
+
+    cout << endl << "Gracias por usar el programa!!! \n" << endl;
 
     return 0;
 

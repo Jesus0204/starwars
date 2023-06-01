@@ -33,6 +33,8 @@ class Game {
     void agrega_weapons();
     void agrega_planetas();
     void imprimir();
+    void actualizar_lista(int pos);
+    void juego_eliminacion();
 };
 
 /**
@@ -170,4 +172,68 @@ void Game :: imprimir(){
         Star_wars[i] -> muestra_opciones();
     }
 }
+
+/**
+ * actualizar_lista borra un elemento de la lista
+ *
+ * Borra el elemento de la lista que el usuario ya no quiere conservar, 
+ * y se sobreescribe ese elemento, con el elemento que sigue
+ * @param int posición del elemento que se quiere borrar
+ * @return
+ */
+void Game :: actualizar_lista(int pos){
+    // Se empieza en la posición que se quiere borrar
+    for (int j = pos; j < num_obj; j++){
+        Star_wars[j] = Star_wars[j+1];
+    }
+}
+
+/**
+ * juego_eliminacion ejecuta el juego 
+ *
+ * Es la base y el propósito del programa, donde a través de 
+ * interacción del usuario se van eliminando elementos hasta que 
+ * salga el ganador
+ * @param None
+ * @return
+ */
+void Game :: juego_eliminacion(){
+
+    // Se crean variables necesarias para posterior asignación
+    int choice = 3;
+    int position;
+
+    // Que se repita la eliminación de pares hasta que solo quede un elemento
+    while (num_obj > 1){
+        for (int i = 0; i < num_obj; i++){
+            // Se declara variable para que funcione el ciclo
+            int choice = 3;
+            
+            // Poner el ciclo para que solo se puedan dos opciones
+            while (choice >= 3 || choice <= 0){
+                cout << "La primera opcion es: " << endl;
+                Star_wars[i] -> muestra_opciones();
+                cout << endl << "La segunda opcion es: " << endl;
+                Star_wars[i+1] -> muestra_opciones();
+                cout << "Por favor elige la opción 1 o 2. Escribe el número 1 o 2: ";
+                cin >> choice;
+                cout << endl;
+
+                // Si se elige quedar con el elemento 1, entonces se elimina el elemento que sigue
+                if (choice == 1){
+                    position = i + 1;
+                    num_obj--;
+                }
+                // Si se elige quedar con elemento 2 (que se conoce como i + 1) entonces se elimina el elemento i
+                else if (choice == 2){
+                    position = i;
+                    num_obj--;
+                }
+            }
+            // Dependiendo de la opción del usuario se manda eliminar ese elemento
+            actualizar_lista(position);
+        }
+    }
+}
+
 #endif
