@@ -9,6 +9,7 @@ Este programa va a tener precargados ciertos personajes, armas o planetas, donde
 Va a haber 16 objetos de cada tipo (8 de armas, ya que son menos), para que se pueda hacer la comparación sin ningún tipo de problema. 
 
 Se corre en consola, y se compila con g++
+Se usan las librerías de iostream, y random (para la función de shuffle)
 
 ## Tipo de objetos
 Para evitar confusiones, estos son los tipos de objetos que va a tener el juego: 
