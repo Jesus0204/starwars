@@ -12,6 +12,7 @@
  * Clase Planeta con info general sobre el planeta
  */
 
+// Librerías
 #ifndef SW_OBJECT_H
 #define SW_OBJECT_H
 #include <iostream>
@@ -34,7 +35,8 @@ class SW_object {
     string get_nombre();
     string get_affiliation();
     int get_game_type();
-    virtual void muestra_opciones();
+    // Implementación de clase abstracta
+    virtual void muestra_opciones() = 0;
 };
 
 /**
@@ -59,21 +61,6 @@ string SW_object :: get_affiliation(){
  */
 int SW_object :: get_game_type(){
     return game_type;
-}
-
-/**
- * muestra_opciones imprime las opciones disponibles
- *
- * Imprime las características generales de los objetos sin 
- * importar que tipo de objeto es
- * @param None se usa polimorfismo
- * @return
- */
-void SW_object :: muestra_opciones(){
-
-    cout << "Nombre: " << nombre << endl;
-    cout << "Afilliation: " << afilliation << endl;
-
 }
 
 // Clase Personaje que hereda de SW_object

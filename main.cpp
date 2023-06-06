@@ -14,6 +14,7 @@
 
 // Biblotecas
 #include <iostream>
+#include <random>
 #include "Game.h"
 using namespace std;
 
@@ -23,7 +24,8 @@ void menu_inicial(){
     cout << "\nMenu:\n";
     cout << "1. Jugar con Personajes.\n";
     cout << "2. Jugar con Armas.\n";
-    cout << "3. Jugar con Planetas.\n\n";
+    cout << "3. Jugar con Planetas.\n";
+    cout << "4. Jugar con Personajes y Planetas. \n\n";
 }
 
 int main(){
@@ -37,10 +39,10 @@ int main(){
     Game juego;
 
     // Se asgina un valor inicial a opción para que entre al ciclo
-    int opcion = 4;
+    int opcion = 5;
 
     // Ciclo para que se repita hasta que el usuario eliga opción válida
-    while (opcion < 1 || opcion > 3){
+    while (opcion < 1 || opcion > 4){
         // Imprimir el menu
         menu_inicial();
         cout << "Opción: ";
@@ -64,6 +66,12 @@ int main(){
                 juego.agrega_planetas();
                 break;
             }
+            // Caso 4 que juega con personajes y planetas
+            case 4: {
+                juego.agrega_personajes();
+                juego.agrega_planetas();
+                break;
+            }
         }
     }
 
@@ -75,7 +83,5 @@ int main(){
     juego.imprimir();
 
     cout << endl << "Gracias por usar el programa!!! \n" << endl;
-
     return 0;
-
 }
