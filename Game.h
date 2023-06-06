@@ -13,15 +13,19 @@
 
 #ifndef GAME_H
 #define GAME_H
+
+// Librerías
 #include "SW_object.h"
 #include <iostream>
+#include <random>
+
 
 using namespace std;
 
 class Game {
     // Atributos de la clase
     private:
-    SW_object * Star_wars[100]; // Se define la lista de apuntadores de clase SW_object para usar polimorfismo
+    SW_object * Star_wars[100]; // Se define el arreglo de apuntadores de clase SW_object para usar polimorfismo
     int num_obj;
 
     public:
@@ -29,6 +33,7 @@ class Game {
     Game(): num_obj(0){}
 
     // Métodos de la clase
+    void shuffle_l();
     void agrega_personajes();
     void agrega_weapons();
     void agrega_planetas();
@@ -36,6 +41,27 @@ class Game {
     void actualizar_lista(int pos);
     void juego_eliminacion();
 };
+
+/**
+ * shuffle_l revuelve el arreglo aleatoriamente
+ * 
+ * Lo que hace la función de shuffle, es tomar como parametros la
+ * referencia (dirección de memoria) del primer elemento del arreglo y 
+ * del último, que usa swap para mover aleatoriamente los objetos y revolverlos
+ * El último parámetro es un generador uniforme de números aleatorios, y es con
+ * esto que se elige que elemento cambiar
+ * @param None
+ * 
+ * Se usaron los links: 
+ * https://www.geeksforgeeks.org/shuffle-an-array-using-stl-in-c/
+ * https://cplusplus.com/reference/algorithm/shuffle/ 
+ */
+void Game :: shuffle_l(){
+    // Parte del generador de número aleatorios
+    unsigned seed = 0;
+    // Se le da la dirección del primer elemento, y del último del arreglo
+    shuffle(&Star_wars[0], &Star_wars[num_obj - 1], default_random_engine(seed));
+}
 
 /**
  * agrega_personajes genera objetos en Star_Wars[]
@@ -80,6 +106,9 @@ void Game :: agrega_personajes(){
     num_obj++;
     Star_wars[num_obj] = new Personaje("Boba Fett", "32 BBY", "Bounty Hunters Guild", "Human Clone", "Kamino", "Male", 1);
     num_obj++;
+
+    // Se llama a la función para revolver la lista
+    shuffle_l();
 }
 
 /**
@@ -109,6 +138,9 @@ void Game :: agrega_weapons(){
     num_obj++;
     Star_wars[num_obj] = new Weapons("Force Pike", "Republic/Empire", 500, "Grahphite", 2);
     num_obj++;
+
+    // Se llama a la función para revolver la lista
+    shuffle_l();
 }
 
 /**
@@ -154,6 +186,9 @@ void Game :: agrega_planetas(){
     num_obj++;
     Star_wars[num_obj] = new Planeta("Raxus", "Separatists/Empire", "Outer Rim", 1, 3);
     num_obj++;
+
+    // Se llama a la función para revolver la lista
+    shuffle_l();
 }
 
 /**
@@ -215,7 +250,7 @@ void Game :: juego_eliminacion(){
                 Star_wars[i] -> muestra_opciones();
                 cout << endl << "La segunda opcion es: " << endl;
                 Star_wars[i+1] -> muestra_opciones();
-                cout << "Por favor elige la opción 1 o 2. Escribe el número 1 o 2: ";
+                cout << "\n Por favor elige la opción 1 o 2. Escribe el número 1 o 2: ";
                 cin >> choice;
                 cout << endl;
 
