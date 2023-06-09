@@ -18,6 +18,7 @@
 #include "SW_object.h"
 #include <iostream>
 #include <random>
+#include <algorithm> 
 
 
 using namespace std;
