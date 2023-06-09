@@ -19,6 +19,7 @@
 
 using namespace std;
 
+// Declaración de SW_object, que es una clase abstracta
 class SW_object {
     // Atributos de la clase
     protected: 

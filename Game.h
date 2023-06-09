@@ -23,6 +23,7 @@
 
 using namespace std;
 
+// Declaración de clase Game, que tiene una lista de objetos SW_object
 class Game {
     // Atributos de la clase
     private:
