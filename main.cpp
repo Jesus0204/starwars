@@ -42,10 +42,10 @@ int main(){
     int opcion = 5;
 
     // Ciclo para que se repita hasta que el usuario eliga opción válida
-    while (opcion < 1 || opcion > 4){
+    while (opcion > 4 || opcion < 1){
         // Imprimir el menu
         menu_inicial();
-        cout << "Opción: ";
+        cout << "Por favor solo escribe números. Opción: ";
         // Tomar el input del usuario
         cin >> opcion;
         

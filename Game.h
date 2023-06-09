@@ -251,7 +251,7 @@ void Game :: juego_eliminacion(){
                 Star_wars[i] -> muestra_opciones();
                 cout << endl << "La segunda opcion es: " << endl;
                 Star_wars[i+1] -> muestra_opciones();
-                cout << "\n Por favor elige la opción 1 o 2. Escribe el número 1 o 2: ";
+                cout << "\n Por favor elige la opción 1 o 2. Escribe el número 1 o 2 (no letras por favor): ";
                 cin >> choice;
                 cout << endl;
 
