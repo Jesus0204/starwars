@@ -30,7 +30,7 @@ void menu_inicial(){
 
 int main(){
 
-    cout << "\n¡Bienvenido al juego de Eliminación de Star Wars©! Comenzemos!!\n";
+    cout << "\n¡Bienvenido al juego de Eliminación de Star Wars©! Comencemos!!\n";
 
     /* Crear el objeto del juego con la lista vacía. 
      * dependiendo del tipo de juego, se carga con diferentes
